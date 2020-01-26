@@ -1,25 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    <a class="navbar-brand" href="#">Collabler</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse ml-md-auto" id="navbarSupportedContent">
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      </form>
-      <ul class="navbar-nav ml-md-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">いいね <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">お気に入り<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">その他<span class="sr-only">(current)</span></a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <%= link_to "", "#", class: "navbar__brand navbar__mainLogo" %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-md-auto align-items-center">
+            <li>
+              <%= link_to "投稿", "#", class: "btn btn-primary" %>
+            </li>
+            <li>
+              <%= link_to "投稿", "#", class: "btn btn-primary" %>
+            </li>
+            <li>
+              <%= link_to "プロフィール", user_path(current_user), class: "btn btn-primary" %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
