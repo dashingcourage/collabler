@@ -1,1 +1,10 @@
  @import "bootstrap";
+ @import "partial/navbar.scss";
+ @import "partial/forms.scss";
+ @import "partial/profile.scss";
+
+ body {
+   background-color: #fafafa;
+   font-size: 14px;
+   color: #262626;
+ }
