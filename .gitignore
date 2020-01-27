@@ -31,3 +31,5 @@
 /config/master.key
 
 *.png
+*.jpeg
+*.jpg
