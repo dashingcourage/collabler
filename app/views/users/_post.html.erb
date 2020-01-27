@@ -1,0 +1,9 @@
+<% posts.each do |post| %>
+  <div class="col-4 mt-4">
+    <%= link_to post_path(post) do %>
+      <div class="post-stat d-flex justify-content-center align-items-center">
+      </div>
+      <%= image_tag post.photos.first.image.url(:medium), class: "card-img-top image-preview" %>
+    <% end %>
+  </div>
+<% end %>
