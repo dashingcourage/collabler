@@ -9,5 +9,6 @@
       </strong>
     </span>
     <span><%= comment.comment %></span>
+    <div class="post-time"><%= time_ago_in_words(comment.created_at).upcase %>前</div>
   </div>
 <% end %>

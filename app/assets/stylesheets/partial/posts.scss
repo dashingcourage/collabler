@@ -13,20 +13,9 @@
   text-decoration: none;
 }
 
-.black-color {
-  color: #262626;
-}
 
 .parts {
   margin: 12px 0;
-}
-
-.love {
-  background-image: image-url("parts5");
-  background-repeat: no-repeat;
-  height: 36px;
-  width: 36px;
-  background-size: 36px !important;
 }
 
 .comment {
@@ -38,48 +27,13 @@
   background-size: 40px !important;
 }
 
-.post-time {
-  margin:0;
-  color:#999;
-  font-size:10px;
-}
+
 
 .post-sub-text {
   text-decoration: none;
   color: #262626;
 }
 
-.post-wrap .col-md-8 {
-  padding: 0px;
-}
-
-.card-right {
-  padding: 20px;
-}
-
-.card-right-name {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #e6e6e6;
-  display: flex;
-}
-
-.card-right-comment {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #e6e6e6;
-  height: 320px;
-  overflow: auto;
-}
-
-.postShow-wrap {
-  border: 1px solid #e6e6e6;
-  margin: 40px;
-}
-
-.post-user-name {
-  display: flex;
-  align-items: center;
-  line-height: 0;
-}
 
 .delete-post-icon {
   background-image: image-url("parts9");
@@ -91,20 +45,6 @@
   font-size: 20px;
 }
 
-.loved {
-  background-image: image-url("parts7");
-  background-repeat: no-repeat;
-  height: 36px;
-  width: 36px;
-  background-size: 36px !important;
-}
-
-.hide-text {
-  display: block;
-  overflow: hidden;
-  text-indent: 110%;
-  white-space: nowrap;
-}
 
 .delete-comment {
   background-image: image-url("parts8");
@@ -114,4 +54,25 @@
   float: right;
   margin: 5px 0 0 10px;
   background-size: 11px !important;
+}
+
+//
+
+.show-right-title {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #bbb;
+}
+
+.post-time {
+  margin:0;
+  color:#999;
+  font-size:10px;
+}
+
+.show-right-user-name {
+  display: inline-block;
+}
+
+.show-right-user-caption{
+  display: inline-block;
 }
