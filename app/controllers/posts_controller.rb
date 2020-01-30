@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.limit(10).includes(:photos, :user).order('created_at DESC')
+    @feed_items = current_user.feed
   end
 
   def show
