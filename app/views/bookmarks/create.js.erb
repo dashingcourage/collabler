@@ -1,0 +1,2 @@
+$('#bookmark-icon-post-<%= @post.id.to_s %>').
+  html('<%= link_to "Unbookmark", post_bookmark_path(@post.id, @bookmark.id), method: :DELETE, remote: true %>');

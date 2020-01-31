@@ -1,0 +1,48 @@
+<% posts.each do |post| %>
+  <div class="container">
+    <div class="col-md-6 mx-auto">
+      <div class="row">
+        <div class="card mt-2">
+          <div class="card-header">
+            <%= link_to user_path(post.user) do %>
+              <%= image_tag avatar_url(post.user), class: "post-profile-icon" %>
+            <% end %>
+            <%= link_to user_path(post.user), title: post.user.name do %>
+              <strong><%= post.user.name %></strong>
+              <strong><%= post.user.id %></strong>
+            <% end %>
+            <% if post.user_id == current_user.id %>
+              <%= link_to post_path(post), method: :delete do %>
+                <div class="delete-post-icon">
+                delete
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <div data-toggle="modal" data-target="#exampleModal-<%= post.id.to_s %>">
+            <%= image_tag post.photos.first.image.url(:medium), class: "card-img-top" %>
+            <div class="modal fade" id="exampleModal-<%= post.id.to_s %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <%= render 'posts/photo_detail', {post: post} %>
+                  </div>
+                  <div class="modal-footer">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            コメント
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -30,6 +30,5 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-*.png
-*.jpeg
-*.jpg
+app/assets/images
+public/uploads

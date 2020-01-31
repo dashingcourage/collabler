@@ -2,8 +2,8 @@
   <div class="card devise-card">
     <div class="form-wrap">
       <div class="form-group text-center">
-        <h2 class="logo-img mx-auto">Collabler</h2>
-        <p class="text-secondary">友達の写真や動画をチェックしよう</p>
+        <h2 class="mx-auto">Collabler</h2>
+        <p class="text-secondary">他の部署・同僚の写真や動画をチェックしよう</p>
       </div>
       <%= form_with scope: resource, as: resource_name, url: registration_path(resource_name), local: true do |f| %>
         <div class="form-group">
@@ -21,10 +21,12 @@
         <div class="form-group">
           <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "パスワードの確認", class: "form-control" %>
         </div>
+        <p class="text-center"><%= link_to "「利用規約」", terms_path %></p>
         <div class="actions">
-          <%= f.submit "登録する", class: "btn btn-primary w-100" %>
+          <%= f.submit "上記、「利用規約」に同意し、登録する", class: "btn btn-primary w-100" %>
         </div>
       <% end %>
+      
       <br>
       <p class="devise-link">
         アカウントをお持ちですか？
