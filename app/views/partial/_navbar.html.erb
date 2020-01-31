@@ -7,13 +7,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-md-auto align-items-center">
             <li>
-              <%= link_to "投稿", new_post_path, class: "btn btn-primary" %>
+              <%= link_to "Create", new_post_path, class: "btn btn-primary" %>
             </li>
             <li>
-              <%= link_to "通知", "#", class: "btn btn-primary" %>
+              <%= link_to "Explore", posts_path, class: "btn btn-primary" %>
             </li>
             <li>
-              <%= link_to "プロフィール", user_path(current_user), class: "btn btn-primary" %>
+              <%= link_to "Notification", "#", class: "btn btn-primary" %>
+            </li>
+            <li>
+              <%= link_to "Profile", user_path(current_user), class: "btn btn-primary" %>
             </li>
           </ul>
         </div>

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
-  root 'posts#index'
+  root 'users#index'
   get '/pages/terms', to:'pages#terms', as:'terms'
 
-  resources :users, only: %i(show) do
+  resources :users, only: %i(show index) do
     member do
       get :following, :followers
     end
