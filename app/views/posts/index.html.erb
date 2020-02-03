@@ -14,7 +14,7 @@
             <% if post.user_id == current_user.id %>
               <%= link_to post_path(post), method: :delete do %>
                 <div class="delete-post-icon">
-                delete
+                <span>delete</span>
                 </div>
               <% end %>
             <% end %>

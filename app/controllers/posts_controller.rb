@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.includes(:photos, :user).order('created_at DESC')
+    @posts = current_user.feed.includes(:photos).order('created_at DESC')
   end
 
   def show
