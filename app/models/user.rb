@@ -16,9 +16,9 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
 
   def update_without_current_password(params, *options)
-    params.delete(:current_password)
- 
+    
     if params[:password].blank? && params[:password_confirmation].blank?
+      params.delete(:current_password)
       params.delete(:password)
       params.delete(:password_confirmation)
     end
@@ -46,5 +46,4 @@ class User < ApplicationRecord
     Post.where("user_id IN (#{following_ids})
                      OR user_id = :user_id", user_id: id)
   end
-
 end
