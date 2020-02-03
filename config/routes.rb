@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
-  root 'users#index'
+  root 'posts#index'
   get '/pages/terms', to:'pages#terms', as:'terms'
 
   resources :users, only: %i(show index) do
@@ -16,4 +16,5 @@ Rails.application.routes.draw do
     resources :bookmarks, only: %i(create destroy)
   end
   resources :relationships, only: %i(create destroy)
+  resources :notifications, only: :index
 end

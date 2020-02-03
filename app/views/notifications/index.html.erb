@@ -1,0 +1,18 @@
+<% if @notifications.exists? %> 
+  <div class="col-md-6 mx-auto">
+    <% @notifications.each do |notification| %>
+      <%= link_to notification.actor.username, user_path(notification.actor) %>
+        <% case notification.action%>
+          <% when 'like' then %>
+            <span>がいいねしました。</span>
+          <% when 'comment' then %>
+            <span>がコメントしました。</span>
+          <% when 'bookmark' then %>
+            <span>がお気に入りに追加しました。</span>
+        <% end %>
+    <br>
+    <% end %>
+  </div>
+<% else %>
+  <p>通知はありません</p>
+<% end %>

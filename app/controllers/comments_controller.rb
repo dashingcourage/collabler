@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @post = @comment.post
     if @comment.save
+      Notification.create(recipient_id: @post.user_id, actor_id: current_user.id, action: "comment", notifiable: @comment)
       respond_to :js
     else
       flash[:alert] = "コメントに失敗しました"
