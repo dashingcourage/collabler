@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'posts#index'
   get '/pages/terms', to:'pages#terms', as:'terms'
+  get '/pages/privacypolicy', to:'pages#privacypolicy', as:'privacypolicy'
 
   resources :users, only: %i(show index) do
     member do
