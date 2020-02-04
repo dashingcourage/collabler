@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_03_054714) do
+ActiveRecord::Schema.define(version: 2020_02_04_103442) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "post_id", null: false
@@ -92,6 +92,9 @@ ActiveRecord::Schema.define(version: 2020_02_03_054714) do
     t.string "phone_number"
     t.string "sex"
     t.string "profile_photo"
+    t.string "provider"
+    t.string "uid"
+    t.text "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
