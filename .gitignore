@@ -32,3 +32,6 @@
 
 app/assets/images
 public/uploads
+
+#dotenv-rails
+/.env

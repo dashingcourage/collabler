@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LikesController < ApplicationController
   before_action :authenticate_user!
 
@@ -5,7 +7,7 @@ class LikesController < ApplicationController
     @like = current_user.likes.build(like_params)
     @post = @like.post
     if @like.save
-      Notification.create(recipient_id: @post.user_id, actor_id: current_user.id, action: "like", notifiable: @like)
+      Notification.create(recipient_id: @post.user_id, actor_id: current_user.id, action: 'like', notifiable: @like)
       respond_to :js
     end
   end
@@ -21,7 +23,8 @@ class LikesController < ApplicationController
   end
 
   private
-    def like_params
-      params.permit(:post_id)
-    end
+
+  def like_params
+    params.permit(:post_id)
+  end
 end
