@@ -1,7 +1,7 @@
-class PagesController < ApplicationController
-  def terms
-  end
+# frozen_string_literal: true
 
-  def privacypolicy
-  end
+class PagesController < ApplicationController
+  def terms; end
+
+  def privacypolicy; end
 end

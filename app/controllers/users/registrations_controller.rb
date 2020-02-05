@@ -1,5 +1,6 @@
-class RegistrationsController < Devise::RegistrationsController
+# frozen_string_literal: true
 
+class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def update_resource(resource, params)
@@ -11,6 +12,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(resource)
-    user_path(resource)                    
+    user_path(resource)
   end
 end

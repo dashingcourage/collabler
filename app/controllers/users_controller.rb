@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
@@ -21,8 +23,8 @@ class UsersController < ApplicationController
       bypass_sign_in(@user)
       redirect_to root_path
     else
-      flash[:alert] = "内容に誤りがあります。"
-      render "edit"
+      flash[:alert] = '内容に誤りがあります。'
+      render 'edit'
     end
   end
 
@@ -31,5 +33,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:current_password, :password, :password_confirmation)
   end
-
 end
