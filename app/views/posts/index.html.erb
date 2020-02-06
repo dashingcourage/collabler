@@ -1,6 +1,6 @@
 <% @posts.each do |post| %>
   <div class="container">
-    <div class="col-md-6 mx-auto">
+    <div class="col-md-6 middle-block">
       <div class="row">
         <div class="card mt-2">
           <div class="card-header">
@@ -53,7 +53,7 @@
             </div>
             <hr>
             <div class="row actions" id="comment-form-post-<%= post.id.to_s %>">
-              <%= form_with model: [post, Comment.new], class: "w-100" do |f| %>
+              <%= form_with model: [post, Comment.new], class: "form-button" do |f| %>
                 <%= f.hidden_field :user_id, value: current_user.id %>
                 <%= f.hidden_field :post_id, value: post.id %>
                 <%= f.text_field :comment, class: "form-control comment-input border-0", placeholder: "コメント ...", autocomplete: :off %>

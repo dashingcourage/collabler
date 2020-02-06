@@ -1,12 +1,6 @@
- @import "bootstrap";
- @import "partial/navbar.scss";
- @import "partial/forms.scss";
- @import "partial/profile.scss";
- @import "partial/posts.scss";
+@import "bootstrap";
+@import "layout.scss";
+@import "partials/base.scss";
 
- 
- body {
-   background-color: #fafafa;
-   font-size: 14px;
-   color: #262626;
- }
+@import "font-awesome-sprockets";
+@import "font-awesome";

@@ -1,16 +1,17 @@
 <div class="main">
-  <div class="card devise-card">
+  <div class="devise-outer register-top">
     <div class="form-wrap">
-      <div class="form-group text-center">
-        <h2 class="mx-auto">Collabler</h2>
+      <div class="form-group middle-text">
+        <h2 class="middle-block">Collabler</h2>
         <p class="text-secondary">他の部署・同僚の写真や動画をチェックしよう</p>
       </div>
-      <%= form_with scope: resource, as: resource_name, url: registration_path(resource_name), local: true do |f| %>
+      <%= form_with model: @user, local: true do |f| %>
+        <%= devise_error_messages! %>
         <div class="form-group">
           <%= f.email_field :email, autofocus: true, placeholder: "メールアドレス", class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.text_field :name, autofocus: "off", placeholder: "本名", class: "form-control" %>
+          <%= f.text_field :name, autofocus: "off", placeholder: "フルネーム", class: "form-control" %>
         </div>
         <div class="form-group">
           <%= f.text_field :username, autofocus: "off", placeholder: "ユーザーネーム", class: "form-control" %>
@@ -21,18 +22,24 @@
         <div class="form-group">
           <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "パスワードの確認", class: "form-control" %>
         </div>
-        <p class="text-center"><%= link_to "「利用規約」", terms_path %></p>
-        <div class="actions">
-          <%= f.submit "上記、「利用規約」に同意し、登録する", class: "btn btn-primary w-100" %>
+        <p class="middle-text">
+        <%= link_to "「利用規約」", terms_path %>、および
+        <%= link_to "「プライバシーポリシー」", privacypolicy_path %>
+        へ同意し、
+        </p>
+        <div class="form-group middle-text">
+          <%= f.submit "登録する", class: "btn btn-primary" %>
         </div>
       <% end %>
-      
-      <br>
-      <p class="devise-link">
+      <div class="middle-text">
+        <%= link_to user_facebook_omniauth_authorize_path do %>
+          <p class="btn btn-outline-primary"><i class="fab fa-facebook"></i> Sign in with Facebook</p>
+        <% end %>
+      </div>
+      <p class="devise-link middle-text">
         アカウントをお持ちですか？
         <%= link_to "サインインする", new_user_session_path %>
       </p>
-      <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
     </div>
   </div>
 </div>

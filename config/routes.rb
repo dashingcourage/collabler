@@ -3,7 +3,10 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations', 
                                     omniauth_callbacks: 'users/omniauth_callbacks' }
-  root 'posts#index'
+  devise_scope :user do
+    root :to => "devise/sessions#new"
+  end
+  
   get '/pages/terms', to: 'pages#terms', as: 'terms'
   get '/pages/privacypolicy', to: 'pages#privacypolicy', as: 'privacypolicy'
 

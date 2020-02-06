@@ -1,22 +1,42 @@
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
       <div class="container">
-        <%= link_to "Collabler", root_path %>
+        <h2 class="brand-logo"><i class="fas fa-campground fa-fw"></i><%= link_to "Collabler", root_path %></h2>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-md-auto align-items-center">
             <li>
-              <%= link_to "Create", new_post_path, class: "btn btn-primary" %>
+              <div class="middle-text">
+                <%= link_to new_post_path do %>
+                  <i class="fas fa-plus"></i>
+                  <p>作成</p>
+                <% end %>
+              </div>
             </li>
             <li>
-              <%= link_to "Explore", posts_path, class: "btn btn-primary" %>
+              <div class="middle-text">
+                <%= link_to posts_path do %>
+                  <i class="fab fa-wpexplorer"></i>
+                  <p>発見</p>
+                <% end %>
+              </div>
             </li>
             <li>
-              <%= link_to "Notification", notifications_path, class: "btn btn-primary" %>
+              <div class="middle-text">
+                <%= link_to notifications_path do %>
+                  <i class="far fa-bell"></i>
+                  <p>通知</p>
+                <% end %>
+              </div>
             </li>
             <li>
-              <%= link_to "Profile", user_path(current_user), class: "btn btn-primary" %>
+              <div class="middle-text">
+                <%= link_to user_path(current_user) do %>
+                  <i class="far fa-user-circle"></i>
+                  <p>ユーザー</p>
+                <% end %>
+              </div>
             </li>
           </ul>
         </div>

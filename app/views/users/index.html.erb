@@ -4,7 +4,7 @@
   <div class="row mt-5">
   <h2>フォローする人を見つけよう</h2>
     <% @users.each do |user| %>
-      <div class="col-md-2 text-center">
+      <div class="col-md-2 middle-text">
         <%= image_tag avatar_url(user), class: "avt-img" %>
       <p><%= link_to user.username, user_path(user) %></p>
       </div>

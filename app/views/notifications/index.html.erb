@@ -1,5 +1,5 @@
 <% if @notifications.exists? %> 
-  <div class="col-md-6 mx-auto">
+  <div class="col-md-6 middle-block">
     <% @notifications.each do |notification| %>
       <%= link_to notification.actor.username, user_path(notification.actor) %>
         <% case notification.action%>

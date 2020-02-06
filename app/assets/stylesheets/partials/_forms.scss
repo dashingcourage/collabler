@@ -1,8 +1,3 @@
-
-.devise-card {
-  border: none;
-}
-
 .form-wrap{
   max-width: 400px;
   width: 100%;
@@ -14,26 +9,23 @@
   font-size: inherit;
 }
 
+.devise-outer {
+  border: none;
+}
+
 .devise-link {
-  text-align: center;
-  margin: 16px 0;
+  margin: 40px 0;
 }
 
-#wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-footer {
-  margin-top: auto;
+.register-top {
+  margin-top: 200px;
 }
 
 @media screen and (max-width: 768px) {
   .main {
     padding: 75px 0;
   }
-  .devise-card {
+  .devise-outer {
     background-color: #fafafa;
   }
 }

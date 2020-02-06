@@ -1,7 +1,7 @@
 <% provide(:title, "Profile Edit") %>
 <div class="col-md-offset-2 mb-4 edit-profile-wrapper">
   <div class="row">
-    <div class="col-md-8 mx-auto">
+    <div class="col-md-8 middle-block">
       <div class="profile-form-wrap">
         <%= form_with model:@user, url: user_registration_path, local: true, method: :patch do |f| %>
           <div class="form-group">
