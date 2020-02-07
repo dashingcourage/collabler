@@ -1,3 +1,5 @@
+<% provide(:title, "Home") %>
+
 <% @posts.each do |post| %>
   <div class="container">
     <div class="col-md-6 middle-block">
@@ -8,20 +10,31 @@
               <%= image_tag avatar_url(post.user), class: "post-profile-icon" %>
             <% end %>
             <%= link_to user_path(post.user), title: post.user.name do %>
-              <strong><%= post.user.name %></strong>
-              <strong><%= post.user.id %></strong>
+              <strong><%= post.user.username %></strong>
             <% end %>
             <% if post.user_id == current_user.id %>
               <%= link_to post_path(post), method: :delete do %>
-                <div class="delete-post-icon">
-                <span>delete</span>
-                </div>
+                <i class="fas fa-trash"></i>
               <% end %>
             <% end %>
           </div>
-          <%= link_to(post_path(post)) do%>
-            <%= image_tag post.photos.first.image.url(:medium), class: "card-img-top" %>
-          <% end %>
+          <div class="card-img-top">
+            <div data-toggle="modal" data-target="#exampleModal-<%= post.id.to_s %>">
+              <%= image_tag post.photos.first.image.url(:medium), class: "card-img-top" %>
+              <div class="modal fade show" id="exampleModal-<%= post.id.to_s %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body" style="display: block;">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      <%= render 'posts/photo_detail', {post: post} %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="card-body">
             <div class="d-flex">
               <div id="like-icon-post-<%= post.id.to_s %>", class="" >
@@ -31,7 +44,7 @@
                   <%= link_to "Like", post_likes_path(post), method: :POST, remote: true %>
                 <% end %>
               </div>
-              <div id="bookmark-icon-post-<%= post.id.to_s %>", class="" >
+              <div id="bookmark-icon-post-<%= post.id.to_s %>", class="ml-2" >
                 <% if post.already_bookmarked?(current_user).present? %>
                   <%= link_to "Unbookmark", post_bookmark_path(post.id, post.already_bookmarked?(current_user)), method: :DELETE, remote: true %>
                 <% else %>
@@ -39,24 +52,23 @@
                 <% end %>
               </div>
             </div>
-
             <div id="like-text-post-<%= post.id.to_s %>" class="mt-2">
-              <%= render "like_text", { likes: post.likes } %>
+              <%= render "posts/like_text", { likes: post.likes } %>
             </div>
             <div class="mt-1">
               <span><strong><%= post.user.name %></strong></span>
               <span><%= post.caption %></span>
             </div>    
             <div id="comment-post-<%= post.id.to_s %>", class="mt-1">
-              <%= render 'comments_list', { post: post } %>
+              <%= render 'posts/comments_list', { post: post } %>
               <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post),class: "post-time" %>
             </div>
             <hr>
-            <div class="row actions" id="comment-form-post-<%= post.id.to_s %>">
-              <%= form_with model: [post, Comment.new], class: "form-button" do |f| %>
+            <div id="comment-form-post-<%= post.id.to_s %>">
+              <%= form_with model: [post, Comment.new], remote: true do |f| %>
                 <%= f.hidden_field :user_id, value: current_user.id %>
                 <%= f.hidden_field :post_id, value: post.id %>
-                <%= f.text_field :comment, class: "form-control comment-input border-0", placeholder: "コメント ...", autocomplete: :off %>
+                <%= f.text_field :comment, class: "form-control", placeholder: "コメント ...", autocomplete: :off %>
               <% end %>
             </div>
           </div>

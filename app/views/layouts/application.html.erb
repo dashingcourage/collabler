@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container mt-atuo">
       <%= render 'partial/navbar' if current_user %>
       <% if flash[:notice] %>
         <div class="alert alert-info"><%= flash[:notice] %></div>
@@ -18,8 +18,9 @@
       <% if flash[:alert] %>
         <div class="alert alert-danger"><%= flash[:alert] %></div>
       <% end %>
-
-      <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
       <%= render 'partial/footer' if current_user %>
     </div>
   </body>

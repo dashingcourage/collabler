@@ -1,9 +1,9 @@
 <% post.comments.each do |comment| %>
   <div class="mb-1">
     <% if comment.user == current_user %>
-      <%= link_to "", post_comment_path(post.id, comment), method: :delete, remote: true, class: "delete-comment" %>
+      <%= link_to "d", post_comment_path(post.id, comment), method: :delete, remote: true, class: "delete-comment" %>
     <% end %>
-    <%= link_to comment.user.name, user_path(comment.user), class: "text-dark font-weight-bold" %>
+    <%= link_to comment.user.name, user_path(comment.user), remote: true, class: "text-dark font-weight-bold" %>
     <%= comment.comment %>
   </div>
 <% end %>

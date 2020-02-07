@@ -14,5 +14,10 @@ footer {
 }
 
 .middle-text {
-  text-align: center;
+  display: flex;
+  text-align: middle;
+}
+
+.right-inline-text {
+  margin-left: 80%;
 }

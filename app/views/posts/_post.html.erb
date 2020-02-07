@@ -1,3 +1,5 @@
+<p>Will delete</p>
+
 <% posts.each do |post| %>
   <div class="container">
     <div class="col-md-6 middle-block">
@@ -67,13 +69,6 @@
               <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post),class: "post-time" %>
             </div>
             <hr>
-            <div class="row actions" id="comment-form-post-<%= post.id.to_s %>">
-              <%= form_with model: [post, Comment.new], class: "form-button" do |f| %>
-                <%= f.hidden_field :user_id, value: current_user.id %>
-                <%= f.hidden_field :post_id, value: post.id %>
-                <%= f.text_field :comment, class: "form-control comment-input border-0", placeholder: "コメント ...", autocomplete: :off %>
-              <% end %>
-            </div>
           </div>
         </div>
       </div>
