@@ -1,48 +1,47 @@
 <% provide(:title, "Profile Edit") %>
 
-<div class="col-md-offset-2 mb-4 edit-profile-wrapper">
-  <div class="row">
-    <div class="col-md-8 middle-block">
-      <div class="profile-form-wrap">
-        <%= form_with model:@user, url: user_registration_path, local: true, method: :patch do |f| %>
-          <div class="form-group">
-            <%= f.label :name, "名前" %>
-            <%= f.text_field :name, autofocus: true, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :username, "ユーザーネーム" %>
-            <%= f.text_field :username, autofocus: true, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :website, "ウェブサイト" %>
-            <%= f.text_field :website, autofocus: true, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :self_intro, "自己紹介" %>
-            <%= f.text_area :self_intro, autofocus: true, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :email, "メールアドレス" %>
-            <%= f.email_field :email, autofocus: true, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :phone_number, "電話番号" %>
-            <%= f.text_field :phone_number, autofocus: true, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :sex, "性別" %>
-            <%= f.text_field :sex, autofocus: true, class: "form-control" %>
-          </div>
-          <div class="middle-text">
-            <%= f.submit "変更する", class: "btn btn-primary" %>
-          </div>
-        <% end %>
-      </div>
-      <br>
+<div class="main">
+  <div class="devise-outer">
+    <div class="form-wrap">
+      <%= form_with model:@user, url: user_registration_path, local: true, method: :patch do |f| %>
+        <div class="form-group">
+          <%= f.label :name, "名前" %>
+          <%= f.text_field :name, autofocus: true, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :username, "ユーザーネーム" %>
+          <%= f.text_field :username, autofocus: true, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :website, "ウェブサイト" %>
+          <%= f.text_field :website, autofocus: true, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :self_intro, "自己紹介" %>
+          <%= f.text_area :self_intro, autofocus: true, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email, "メールアドレス" %>
+          <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :phone_number, "電話番号" %>
+          <%= f.number_field :phone_number, autofocus: true, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :sex, "性別" %>
+          <label class="ml-2"><%= f.radio_button :sex, "男性" %>男性</label>
+          <label class="ml-2"><%= f.radio_button :sex, "女性" %>女性</label>
+        </div>
+        <div class="form-group text-center">
+          <%= f.submit "変更する", class: "btn btn-primary" %>
+        </div>
+      <% end %>
       <%= link_to "パスワード変更はこちら",  edit_user_path %>
-      <p>アカウントを削除しますか？ <%= button_to "アカウントを削除する", user_registration_path, data: { confirm: "Are you sure?" }, method: :delete , class: "btn btn-danger"%></p>
-
-      <%= link_to "Back", :back %>
+      <div class="text-center mt-5">
+        <span>アカウントを削除しますか？ <%= button_to "アカウントを削除する", user_registration_path, data: { confirm: "Are you sure?" }, method: :delete , class: "btn btn-danger"%></span>
+      </div>
+      <%= link_to "Back", user_path(@user) %>
     </div>
   </div>
 </div>

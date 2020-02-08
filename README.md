@@ -1,24 +1,25 @@
-# README
+# Collabler
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+このアプリはプログラミングスクールでのサブ課題用のインスタクローンアプリです。
 
-Things you may want to cover:
+## 自分が苦労した点
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+## 学んだ点
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
+For more information, see `awesome-tool --help`.
 
-* Services (job queues, cache servers, search engines, etc.)
+## 自慢したい・相談したい点
 
-* Deployment instructions
+- 自慢したい点
+  全体的なスタイルはきれいにまとめることができたと思います。(アイコンなどはFontAwesomeを使いました)
 
-* ...
+- 相談したい点
+  
+
+## Author
+
+dashingcourage

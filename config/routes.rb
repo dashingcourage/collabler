@@ -30,5 +30,5 @@ Rails.application.routes.draw do
   end
 
   resources :relationships, only: %i[create destroy]
-  resources :notifications, only: :index
+  resources :notifications, only: %i[index]
 end

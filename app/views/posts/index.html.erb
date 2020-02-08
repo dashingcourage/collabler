@@ -1,40 +1,26 @@
 <% provide(:title, "Home") %>
 
 <% @posts.each do |post| %>
-  <div class="container">
-    <div class="col-md-6 middle-block">
+  <div class="main">
+    <div class="col-md-6 offset-md-3">
       <div class="row">
         <div class="card mt-2">
           <div class="card-header">
             <%= link_to user_path(post.user) do %>
-              <%= image_tag avatar_url(post.user), class: "post-profile-icon" %>
+              <%= image_tag avatar_url(post.user), class: "profile-icon" %>
             <% end %>
             <%= link_to user_path(post.user), title: post.user.name do %>
-              <strong><%= post.user.username %></strong>
+              <span class="ml-2 card-username"><%= post.user.username %></span>
             <% end %>
             <% if post.user_id == current_user.id %>
               <%= link_to post_path(post), method: :delete do %>
-                <i class="fas fa-trash"></i>
+                <span class="float-right bin"><i class="fas fa-trash"></i></span>
               <% end %>
             <% end %>
           </div>
-          <div class="card-img-top">
-            <div data-toggle="modal" data-target="#exampleModal-<%= post.id.to_s %>">
-              <%= image_tag post.photos.first.image.url(:medium), class: "card-img-top" %>
-              <div class="modal fade show" id="exampleModal-<%= post.id.to_s %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-                <div class="modal-dialog modal-lg" role="document">
-                  <div class="modal-content">
-                    <div class="modal-body" style="display: block;">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                      <%= render 'posts/photo_detail', {post: post} %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <%= link_to post_path(post) do %>
+            <%= image_tag post.photos.first.image.url(:medium), class: "card-img-top" %>
+          <% end %>
           <div class="card-body">
             <div class="d-flex">
               <div id="like-icon-post-<%= post.id.to_s %>", class="" >
@@ -59,7 +45,7 @@
               <span><strong><%= post.user.name %></strong></span>
               <span><%= post.caption %></span>
             </div>    
-            <div id="comment-post-<%= post.id.to_s %>", class="mt-1">
+            <div id="comment-post-<%= post.id.to_s %>", class="mt-2">
               <%= render 'posts/comments_list', { post: post } %>
               <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post),class: "post-time" %>
             </div>

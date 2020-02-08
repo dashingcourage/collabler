@@ -1,18 +1,25 @@
-<% if @notifications.exists? %> 
-  <div class="col-md-6 middle-block">
-    <% @notifications.each do |notification| %>
-      <%= link_to notification.actor.username, user_path(notification.actor) %>
-        <% case notification.action%>
-          <% when 'like' then %>
-            <span>がいいねしました。</span>
-          <% when 'comment' then %>
-            <span>がコメントしました。</span>
-          <% when 'bookmark' then %>
-            <span>がお気に入りに追加しました。</span>
-        <% end %>
-    <br>
-    <% end %>
+<div class="main">
+  <div class="row mt-5">
+    <div class="col-md-10 offset-md-2">
+      <h4 class="text-center">通知一覧</h4>
+      <% if @notifications.exists? %> 
+        <div class="col-md-6 ">
+          <% @notifications.each do |notification| %>
+            <%= link_to notification.actor.username, user_path(notification.actor) %>
+              <% case notification.action%>
+                <% when 'like' then %>
+                  <span>がいいねしました。</span>
+                <% when 'comment' then %>
+                  <span>がコメントしました。</span>
+                <% when 'bookmark' then %>
+                  <span>がお気に入りに追加しました。</span>
+              <% end %>
+          <br>
+          <% end %>
+        </div>
+      <% else %>
+        <p>通知はありません</p>
+      <% end %>
+    </div>
   </div>
-<% else %>
-  <p>通知はありません</p>
-<% end %>
+</div>

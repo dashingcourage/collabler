@@ -10,18 +10,25 @@
   </head>
 
   <body>
-    <div class="container mt-atuo">
-      <%= render 'partial/navbar' if current_user %>
-      <% if flash[:notice] %>
-        <div class="alert alert-info"><%= flash[:notice] %></div>
-      <% end %>
-      <% if flash[:alert] %>
-        <div class="alert alert-danger"><%= flash[:alert] %></div>
-      <% end %>
-      <div class="container">
+    <div class="container">
+      <header class="sticky-top">
+        <%= render 'partial/navbar' if current_user %>
+
+        <% if flash[:notice] %>
+          <div class="alert alert-info"><%= flash[:notice] %></div>
+        <% end %>
+        <% if flash[:alert] %>
+          <div class="alert alert-danger"><%= flash[:alert] %></div>
+        <% end %>
+      </header>
+        
+      <div class="container mt-atuo">
         <%= yield %>
       </div>
-      <%= render 'partial/footer' if current_user %>
+
+      <footer>
+        <%= render 'partial/footer' if current_user %>
+      </footer>
     </div>
   </body>
 </html>

@@ -5,16 +5,14 @@
     </div>
     <div class="col-md-6">
       <div class="show-right">
-        <div class="show-right-title">
+        <div class="mt-2">
+          <%= image_tag avatar_url(post.user), class: "profile-icon" %>
           <%= link_to user_path(post.user), class: "no-text-decoration" do %>
-            <%= image_tag avatar_url(post.user), class: "post-profile-icon" %>
-          <% end %>
-          <%= link_to user_path(post.user), class: "no-text-decoration" do %>
-            <strong><%= post.user.username %></strong>
+            <span class="card-username ml-2"><%= post.user.username %></span>
           <% end %>
         </div>
-        <div class="d-flex">
-          <div id="like-icon-post-<%= post.id.to_s %>", class="" >
+        <div class="d-flex mt-2">
+          <div id="like-icon-post-<%= post.id.to_s %>" >
             <% if post.already_liked?(current_user).present? %>
               <%= link_to "Unlike", post_like_path(post.id, post.already_liked?(current_user)), method: :DELETE, remote: true %>
             <% else %>

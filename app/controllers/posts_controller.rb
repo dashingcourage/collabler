@@ -22,10 +22,12 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = current_user.feed.includes(:photos).order('created_at DESC')
+    @q = current_user.feed.includes(:photos).order('created_at DESC').ransack(params[:q])
+    @posts = @q.result(distinct: true)
   end
 
-  def show; end
+  def show
+  end
 
   def destroy
     if @post.user == current_user
