@@ -64,10 +64,6 @@ group :test do
   gem 'faker'
 end
 
-group :production do
-  gem 'pg'
-end
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
@@ -81,3 +77,4 @@ gem 'omniauth-facebook'
 gem 'font-awesome-sass'
 gem 'kaminari'
 gem 'ransack'
+gem 'pg'
