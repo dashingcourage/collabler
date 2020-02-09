@@ -22,8 +22,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @q = current_user.feed.includes(:photos).order('created_at DESC').ransack(params[:q])
-    @posts = @q.result(distinct: true)
+    @posts = current_user.feed.includes(:photos).order('created_at DESC')
   end
 
   def show
@@ -36,6 +35,10 @@ class PostsController < ApplicationController
       flash[:alert] = '投稿の削除に失敗しました'
     end
     redirect_to posts_path
+  end
+
+  def search
+    @posts = @search_posts.page(params[:page]).per(9)
   end
 
   private
