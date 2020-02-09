@@ -25,7 +25,8 @@ class PostsController < ApplicationController
     @posts = current_user.feed.includes(:photos).order('created_at DESC')
   end
 
-  def show; end
+  def show
+  end
 
   def destroy
     if @post.user == current_user
@@ -33,7 +34,11 @@ class PostsController < ApplicationController
     else
       flash[:alert] = '投稿の削除に失敗しました'
     end
-    redirect_to root_path
+    redirect_to posts_path
+  end
+
+  def search
+    @posts = @search_posts.page(params[:page]).per(9)
   end
 
   private

@@ -9,8 +9,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.order('created_at DESC')
-    @posts = Post.all.includes(:photos).order('created_at DESC')
+    @users = User.order('created_at DESC').page(params[:users_list]).per(5)
+    @posts = Post.all.includes(:photos).order('created_at DESC').page(params[:posts_list]).per(9)
   end
 
   def edit
@@ -21,9 +21,10 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update_with_password(user_params)
       bypass_sign_in(@user)
-      redirect_to root_path
+      flash[:notice] = "パスワードが変更されました"
+      redirect_to user_path(@user)
     else
-      flash[:alert] = '内容に誤りがあります。'
+      flash.now[:alert] = "変更に失敗しました"
       render 'edit'
     end
   end

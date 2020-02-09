@@ -3,9 +3,13 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations', 
                                     omniauth_callbacks: 'users/omniauth_callbacks' }
-  root 'posts#index'
-  get '/pages/terms', to: 'pages#terms', as: 'terms'
-  get '/pages/privacypolicy', to: 'pages#privacypolicy', as: 'privacypolicy'
+  devise_scope :user do
+    root :to => "devise/sessions#new"
+  end
+  
+  get 'pages/terms', to: 'pages#terms', as: 'terms'
+  get 'pages/privacypolicy', to: 'pages#privacypolicy', as: 'privacypolicy'
+  get 'posts/search', to: 'posts#search', as: 'search'
 
   resources :users, only: %i[show index] do
     member do
@@ -27,5 +31,5 @@ Rails.application.routes.draw do
   end
 
   resources :relationships, only: %i[create destroy]
-  resources :notifications, only: :index
+  resources :notifications, only: %i[index]
 end
