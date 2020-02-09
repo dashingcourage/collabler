@@ -41,7 +41,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', require: false
+  gem 'sqlite3'
 end
 
 group :development do
@@ -66,7 +66,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg', require: false
+  gem 'pg'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
