@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Collabler</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,25 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <header class="sticky-top">
+        <%= render 'partial/navbar' if current_user %>
+
+        <% if flash[:notice] %>
+          <div class="alert alert-info"><%= flash[:notice] %></div>
+        <% end %>
+        <% if flash[:alert] %>
+          <div class="alert alert-danger"><%= flash[:alert] %></div>
+        <% end %>
+      </header>
+        
+      <div class="container mt-atuo">
+        <%= yield %>
+      </div>
+
+      <footer>
+        <%= render 'partial/footer' if current_user %>
+      </footer>
+    </div>
   </body>
 </html>

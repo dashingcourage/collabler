@@ -1,0 +1,19 @@
+<% posts.each do |post| %>
+  <div class="col-4 mt-4">
+    <div data-toggle="modal" data-target="#exampleModal-<%= post.id.to_s %>">
+      <%= image_tag post.photos.first.image.url(:medium), class: "card-img-top" %>
+      <div class="modal fade show" id="exampleModal-<%= post.id.to_s %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-body" style="display: block;">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <%= render 'posts/photo_detail', {post: post} %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

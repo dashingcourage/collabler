@@ -1,0 +1,45 @@
+<% provide(:title, "Registration") %>
+
+<div class="main">
+  <div class="form-wrap">
+    <div class="form-group">
+      <h2 class="text-center">Collabler</h2>
+    </div>
+    <p class="text-center">友達の写真をチェックしよう</p>
+    <%= form_with model: @user, local: true do |f| %>
+      <%= devise_error_messages! %>
+      <div class="form-group">
+        <%= f.email_field :email, autofocus: true, placeholder: "メールアドレス", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.text_field :name, autofocus: "off", placeholder: "フルネーム", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.text_field :username, autofocus: "off", placeholder: "ユーザーネーム", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "パスワードの確認", class: "form-control" %>
+      </div>
+      <p class="text-center">
+      <%= link_to "「利用規約」", terms_path %>、および
+      <%= link_to "「プライバシーポリシー」", privacypolicy_path %>
+      へ同意し、
+      </p>
+      <div class="form-group text-center">
+        <%= f.submit "登録する", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+    <div class="text-center">
+      <%= link_to user_facebook_omniauth_authorize_path do %>
+        <p class="btn btn-outline-primary"><i class="fab fa-facebook"></i> Sign in with Facebook</p>
+      <% end %>
+    </div>
+    <p class="text-center">
+      アカウントをお持ちですか？
+      <%= link_to "サインインする", new_user_session_path %>
+    </p>
+  </div>
+</div>

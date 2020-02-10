@@ -1,0 +1,27 @@
+<% provide(:title, "New Post") %>
+
+<div class="main">
+  <div class="row mt-5">
+    <div class="col-md-10 offset-md-2">
+      <div class="card card-post-new mt-2">
+        <div class="card-header">
+          <h4 class="text-center">投稿作成</h4>
+        </div>
+        <div class="card-body">
+          <%= form_with model: @post do |f| %>
+            <div class="form-group mt-2">
+                <%= f.fields_for :photos do |i| %>
+                  <%= i.file_field :image, accept: 'image/jpg,image/jpeg,image/png', class: "btn"%>
+                <%= f.text_field :caption, class: "form-control ml-2 mt-2", placeholder: "キャプションを書く" %>
+                <% end %>
+            </div>
+            <div class="card-footer text-center">
+              <%= f.submit "投稿する", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+          <%= link_to "Back", posts_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
